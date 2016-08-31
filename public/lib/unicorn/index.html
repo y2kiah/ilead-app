@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Unicorn Admin</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/lib/bootstrap-3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/lib/unicorn/css/font-awesome.css">
+		<link rel="stylesheet" href="/lib/unicorn/css/fullcalendar.css">
+		<link rel="stylesheet" href="/lib/unicorn/css/jquery.jscrollpane.css">	
+		<link rel="stylesheet" href="/lib/unicorn/css/unicorn.css">
+		<link rel="stylesheet" href="/lib/unicorn/css/unicorn.grey.css" class="skin-color">
+	</head>
+	<body>
+		<!--<div id="header">
+			<h1>ILead</h1>
+		</div>
+		<nav style="position:fixed;top:0; left:0; width:100%; height:38px;">-->
+			<div id="header">
+				<h1><a href="#">ILead</a></h1>
+				<a id="menu-trigger" href="#"><i class="icon-align-justify"></i></a>
+			</div>
+			
+			<div id="search">
+				<input type="text" placeholder="Search here..."><button type="submit" class="tip-right" title="Search"><i class="icon-search"></i></button>
+			</div>
+			<div id="user-nav">
+				<ul class="btn-group">
+					<li class="btn" ><a title="" href="#"><i class="icon-user"></i> <span class="text">Profile</span></a></li>
+					<li class="btn dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon-envelope"></i> <span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a class="sAdd" title="" href="#">new message</a></li>
+							<li><a class="sInbox" title="" href="#">inbox</a></li>
+							<li><a class="sOutbox" title="" href="#">outbox</a></li>
+							<li><a class="sTrash" title="" href="#">trash</a></li>
+						</ul>
+					</li>
+					<li class="btn"><a title="" href="#"><i class="icon-cog"></i> <span class="text">Settings</span></a></li>
+					<li class="btn"><a title="" href="#"><i class="icon-share-alt"></i> <span class="text">Logout</span></a></li>
+				</ul>
+			</div>
+		<!--</nav>-->
+		<div id="sidebar">
+			<ul>
+				<li class="active"><a href="#"><i class="icon-dashboard"></i> <span>Dashboard</span></a></li>
+				<li><a href="#"><i class="icon-tasks"></i> <span>My Tasks</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon-sitemap"></i> <span>Organization</span> <i class="arrow icon-chevron-right"></i></a>
+					<ul>
+						<li><a href="#"><i class="icon-building"></i> <span>Departments</span></a></li>
+						<li><a href="#"><i class="icon-group"></i> <span>Employees</span></a></li>
+					</ul>
+				</li>
+				<li><a href="#"><i class="icon-legal"></i> <span>Performance Review</span></a></li>
+				<li><a href="#"><i class="icon-rocket"></i> <span>OKRs</span></a></li>
+				<li><a href="#"><i class="icon-list-alt"></i> <span>Surveys</span></a></li>
+				<li><a href="#"><i class="icon-compass"></i> <span>Planning</span></a></li>
+				<li><a href="#"><i class="icon-th-large"></i> <span>SWOT</span></a></li>
+				<li><a href="#"><i class="icon-bar-chart"></i> <span>Reports</span></a></li>
+				<li><a href="#"><i class="icon-desktop"></i> <span>Presentations</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon-th-list"></i> <span>Administration</span> <i class="arrow icon-chevron-right"></i></a>
+					<ul>
+						<li><a href="#"><i class="icon-time"></i> <span>Cycles</span></a></li>
+						<li><a href="#"><i class="icon-signal"></i> <span>Signals</span></a></li>
+						<li><a href="#"><i class="icon-question-sign"></i> <span>Questions</span></a></li>
+						<li><a href="#"><i class="icon-cogs"></i> <span>Definitions</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div id="style-switcher">
+			<i class="icon-arrow-left"></i>
+			<span>Style:</span>
+			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+            <a href="#light-blue" style="background-color: #8399b0;"></a>
+			<a href="#blue" style="background-color: #2D2F57;"></a>
+			<a href="#red" style="background-color: #673232;"></a>
+            <a href="#red-green" style="background-image: url('img/demo/red-green.png');background-repeat: no-repeat;"></a>
+		</div>
+		
+		<div id="content">
+			<div id="content-header">
+				<h1>Dashboard</h1>
+				<ul class="mini-stats box-3">
+					<li>
+						<div class="left sparkline_bar_good"><span>2,4,9,7,12,10,12</span>+10%</div>
+						<div class="right">
+							<strong>36094</strong>
+							Visits
+						</div>
+					</li>
+					<li>
+						<div class="left sparkline_bar_neutral"><span>20,15,18,14,10,9,9,9</span>0%</div>
+						<div class="right">
+							<strong>1433</strong>
+							Users
+						</div>
+					</li>
+					<li>
+						<div class="left sparkline_bar_bad"><span>3,5,9,7,12,20,10</span>+50%</div>
+						<div class="right">
+							<strong>8650</strong>
+							Orders
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+				<a href="#" class="current">Dashboard</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 center" style="text-align: center;">					
+						<ul class="quick-actions">
+							<li>
+								<a href="#">
+									<i class="icon-cal"></i>
+									Manage Events
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-shopping-bag"></i>
+									Manage Orders
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-database"></i>
+									Manage DB
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-people"></i>
+									Manage Users
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-lock"></i>
+									Security
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-piechart"></i>
+									Statistics
+								</a>
+							</li>
+						</ul>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="widget-box widget-plain">
+							<div class="widget-content center">
+								<ul class="stats-plain">
+									<li>										
+										<h4>36094</h4>
+										<span>Total Visits</span>
+									</li>
+									<li>										
+										<h4>1433</h4>
+										<span>Users Registered</span>
+									</li>
+									<li>										
+										<h4>8650</h4>
+										<span>Completed Orders</span>
+									</li>
+									<li>										
+										<h4>29</h4>
+										<span>Pending Orders</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="alert alert-info">
+							Welcome in the <strong>Unicorn Admin Theme</strong>. Don't forget to check all the pages!
+							<a href="#" data-dismiss="alert" class="close">×</a>
+						</div>
+						<div class="widget-box">
+							<div class="widget-title"><span class="icon"><i class="icon-signal"></i></span><h5>Site Statistics</h5><div class="buttons"><a href="#" class="btn"><i class="icon-refresh"></i> <span class="text">Update stats</span></a></div></div>
+							<div class="widget-content">
+								<div class="row">
+									<div class="col-xs-12 col-sm-4">
+										<ul class="site-stats">
+											<li><div class="cc"><i class="icon-user"></i> <strong>1433</strong> <small>Total Users</small></div></li>
+											<li><div class="cc"><i class="icon-arrow-right"></i> <strong>16</strong> <small>New Users (last week)</small></div></li>
+											<li class="divider"></li>
+											<li><div class="cc"><i class="icon-shopping-cart"></i> <strong>259</strong> <small>Total Shop Items</small></div></li>
+											<li><div class="cc"><i class="icon-tag"></i> <strong>8650</strong> <small>Total Orders</small></div></li>
+											<li><div class="cc"><i class="icon-repeat"></i> <strong>29</strong> <small>Pending Orders</small></div></li>
+										</ul>
+									</div>
+									<div class="col-xs-12 col-sm-8">
+										<div class="chart"></div>
+									</div>	
+								</div>							
+							</div>
+						</div>					
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="widget-box">
+							<div class="widget-title"><span class="icon"><i class="icon-file"></i></span><h5>Recent Posts</h5><span title="54 total posts" class="label label-info tip-left">54</span></div>
+							<div class="widget-content nopadding">
+								<ul class="recent-posts">
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av2.jpg">
+										</div>
+										<div class="article-post">
+											<span class="user-info"> By: neytiri on 2 Aug 2012, 09:27 AM, IP: 186.56.45.7 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av3.jpg">
+										</div>
+										<div class="article-post">
+											<span class="user-info"> By: john on on 24 Jun 2012, 04:12 PM, IP: 192.168.24.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av1.jpg">
+										</div>
+										<div class="article-post">
+											<span class="user-info"> By: michelle on 22 Jun 2012, 02:44 PM, IP: 172.10.56.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li class="viewall">
+										<a title="View all posts" class="tip-top" href="#"> + View all + </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<div class="widget-box">
+							<div class="widget-title"><span class="icon"><i class="icon-comment"></i></span><h5>Recent Comments</h5><span title="88 total comments" class="label label-info tip-left">88</span></div>
+							<div class="widget-content nopadding">
+								<ul class="recent-comments">
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av1.jpg">
+										</div>
+										<div class="comments">
+											<span class="user-info"> User: michelle on IP: 172.10.56.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av3.jpg">
+										</div>
+										<div class="comments">
+											<span class="user-info"> User: john on IP: 192.168.24.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av2.jpg">
+										</div>
+										<div class="comments">
+											<span class="user-info"> User: neytiri on IP: 186.56.45.7 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li class="viewall">
+										<a title="View all comments" class="tip-top" href="#"> + View all + </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="widget-box widget-calendar">
+							<div class="widget-title"><span class="icon"><i class="icon-calendar"></i></span><h5>Calendar</h5></div>
+							<div class="widget-content nopadding">
+								<div class="calendar"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-bar-chart"></i>
+								</span>
+								<h5>Line chart</h5>
+							</div>
+							<div class="widget-content">
+								<div class="chart2" style="padding: 0px; position: relative;">
+									<!--<canvas class="base" width="1638" height="300"></canvas>
+									<canvas class="overlay" width="1638" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas>
+									<div class="tickLabels" style="font-size:smaller">
+										<div class="xAxis x1Axis" style="color:#AAAAAA">
+											<div class="tickLabel" style="position:absolute;text-align:center;left:-27px;top:283px;width:109px">0</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:92px;top:283px;width:109px">1</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:211px;top:283px;width:109px">2</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:330px;top:283px;width:109px">3</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:449px;top:283px;width:109px">4</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:568px;top:283px;width:109px">5</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:687px;top:283px;width:109px">6</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:806px;top:283px;width:109px">7</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:925px;top:283px;width:109px">8</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:1044px;top:283px;width:109px">9</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:1163px;top:283px;width:109px">10</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:1282px;top:283px;width:109px">11</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:1401px;top:283px;width:109px">12</div>
+											<div class="tickLabel" style="position:absolute;text-align:center;left:1520px;top:283px;width:109px">13</div>
+										</div>
+										<div class="yAxis y1Axis" style="color:#AAAAAA">
+											<div class="tickLabel" style="position:absolute;text-align:right;top:260px;right:1617px;width:21px">-1.5</div>
+											<div class="tickLabel" style="position:absolute;text-align:right;top:217px;right:1617px;width:21px">-1.0</div>
+											<div class="tickLabel" style="position:absolute;text-align:right;top:175px;right:1617px;width:21px">-0.5</div>
+											<div class="tickLabel" style="position:absolute;text-align:right;top:132px;right:1617px;width:21px">0.0</div>
+											<div class="tickLabel" style="position:absolute;text-align:right;top:89px;right:1617px;width:21px">0.5</div>
+											<div class="tickLabel" style="position:absolute;text-align:right;top:47px;right:1617px;width:21px">1.0</div>
+											<div class="tickLabel" style="position:absolute;text-align:right;top:4px;right:1617px;width:21px">1.5</div>
+										</div>
+									</div>
+									<div class="legend">
+										<div style="position: absolute; width: 51px; height: 38px; top: 9px; right: 9px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div>
+										<table style="position:absolute;top:9px;right:9px;;font-size:smaller;color:#AAAAAA">
+											<tbody>
+												<tr><td class="legendColorBox">
+														<div style="border:1px solid #ccc;padding:1px">
+															<div style="width:4px;height:0;border:5px solid #4fabd2;overflow:hidden"></div>
+														</div>
+													</td>
+													<td class="legendLabel">sin(x)</td>
+												</tr>
+												<tr><td class="legendColorBox">
+														<div style="border:1px solid #ccc;padding:1px">
+															<div style="width:4px;height:0;border:5px solid #459D1C;overflow:hidden"></div>
+														</div>
+													</td>
+													<td class="legendLabel">cos(x)</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-bar-chart"></i>
+								</span>
+								<h5>Bar chart</h5>
+							</div>
+							<div class="widget-content">
+								<div class="bars" style="padding: 0px; position: relative;"><canvas class="base" width="788" height="300"></canvas><canvas class="overlay" width="788" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="tickLabels" style="font-size:smaller"><div class="xAxis x1Axis" style="color:#AAAAAA"><div class="tickLabel" style="position:absolute;text-align:center;left:-12px;top:283px;width:65px">0</div><div class="tickLabel" style="position:absolute;text-align:center;left:61px;top:283px;width:65px">1</div><div class="tickLabel" style="position:absolute;text-align:center;left:134px;top:283px;width:65px">2</div><div class="tickLabel" style="position:absolute;text-align:center;left:208px;top:283px;width:65px">3</div><div class="tickLabel" style="position:absolute;text-align:center;left:281px;top:283px;width:65px">4</div><div class="tickLabel" style="position:absolute;text-align:center;left:355px;top:283px;width:65px">5</div><div class="tickLabel" style="position:absolute;text-align:center;left:428px;top:283px;width:65px">6</div><div class="tickLabel" style="position:absolute;text-align:center;left:502px;top:283px;width:65px">7</div><div class="tickLabel" style="position:absolute;text-align:center;left:575px;top:283px;width:65px">8</div><div class="tickLabel" style="position:absolute;text-align:center;left:649px;top:283px;width:65px">9</div><div class="tickLabel" style="position:absolute;text-align:center;left:722px;top:283px;width:65px">10</div></div><div class="yAxis y1Axis" style="color:#AAAAAA"><div class="tickLabel" style="position:absolute;text-align:right;top:269px;right:774px;width:14px">0</div><div class="tickLabel" style="position:absolute;text-align:right;top:223px;right:774px;width:14px">5</div><div class="tickLabel" style="position:absolute;text-align:right;top:178px;right:774px;width:14px">10</div><div class="tickLabel" style="position:absolute;text-align:right;top:132px;right:774px;width:14px">15</div><div class="tickLabel" style="position:absolute;text-align:right;top:87px;right:774px;width:14px">20</div><div class="tickLabel" style="position:absolute;text-align:right;top:41px;right:774px;width:14px">25</div><div class="tickLabel" style="position:absolute;text-align:right;top:-4px;right:774px;width:14px">30</div></div></div></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-bar-chart"></i>
+								</span>
+								<h5>Pie chart</h5>
+							</div>
+							<div class="widget-content">
+								<div class="pie" style="padding: 0px; position: relative;"><canvas class="base" width="788" height="300"></canvas><canvas class="overlay" width="788" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="pieLabelBackground" style="position: absolute; width: 41px; height: 34px; top: 71px; left: 365px; background-color: rgb(0, 0, 0); opacity: 0.5;"> </div><span class="pieLabel" id="pieLabel0" style="position: absolute; top: 71px; left: 365px;"><div style="font-size:8pt;text-align:center;padding:2px;color:white;">Series1<br>32%</div></span><div class="pieLabelBackground" style="position: absolute; width: 41px; height: 34px; top: 236px; left: 317px; background-color: rgb(0, 0, 0); opacity: 0.5;"> </div><span class="pieLabel" id="pieLabel1" style="position: absolute; top: 236px; left: 317px;"><div style="font-size:8pt;text-align:center;padding:2px;color:white;">Series2<br>24%</div></span><div class="pieLabelBackground" style="position: absolute; width: 41px; height: 34px; top: 222px; left: 202px; background-color: rgb(0, 0, 0); opacity: 0.5;"> </div><span class="pieLabel" id="pieLabel2" style="position: absolute; top: 222px; left: 202px;"><div style="font-size:8pt;text-align:center;padding:2px;color:white;">Series3<br>11%</div></span><div class="pieLabelBackground" style="position: absolute; width: 41px; height: 34px; top: 79px; left: 172px; background-color: rgb(0, 0, 0); opacity: 0.5;"> </div><span class="pieLabel" id="pieLabel3" style="position: absolute; top: 79px; left: 172px;"><div style="font-size:8pt;text-align:center;padding:2px;color:white;">Series4<br>34%</div></span><div class="legend"><div style="position: absolute; width: 61px; height: 76px; top: 5px; right: 5px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;top:5px;right:5px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(237,194,64);overflow:hidden"></div></div></td><td class="legendLabel">Series1</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(175,216,248);overflow:hidden"></div></div></td><td class="legendLabel">Series2</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(203,75,75);overflow:hidden"></div></div></td><td class="legendLabel">Series3</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(77,167,77);overflow:hidden"></div></div></td><td class="legendLabel">Series4</td></tr></tbody></table></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-lg-4">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-eye-open"></i>
+								</span>
+								<h5>Browsers</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<table class="table table-bordered table-striped table-hover">
+									<thead>
+										<tr>
+											<th>Browser</th>
+											<th>Visits</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Chrome</td>
+											<td>8775</td>
+										</tr>
+										<tr>
+											<td>Firefox</td>
+											<td>5692</td>
+										</tr>
+										<tr>
+											<td>Internet Explorer</td>
+											<td>4030</td>
+										</tr>
+										<tr>
+											<td>Opera</td>
+											<td>1674</td>
+										</tr>
+										<tr>
+											<td>Safari</td>
+											<td>1166</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-4">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-arrow-right"></i>
+								</span>
+								<h5>Refferers</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<table class="table table-bordered table-striped table-hover">
+									<thead>
+										<tr>
+											<th>Site</th>
+											<th>Visits</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><a href="#">http://google.com</a></td>
+											<td>12679</td>
+										</tr>
+										<tr>
+											<td><a href="#">http://bing.com</a></td>
+											<td>11444</td>
+										</tr>
+										<tr>
+											<td><a href="#">http://yahoo.com</a></td>
+											<td>8595</td>
+										</tr>
+										<tr>
+											<td><a href="#">http://www.something.com</a></td>
+											<td>4445</td>
+										</tr>
+										<tr>
+											<td><a href="#">http://else.com</a></td>
+											<td>2094</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-lg-4">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-file"></i>
+								</span>
+								<h5>Most Visited Pages</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<table class="table table-bordered table-striped table-hover">
+									<thead>
+										<tr>
+											<th>Page</th>
+											<th>Visits</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><a href="#">Shopping cart</a></td>
+											<td>9440</td>
+										</tr>
+										<tr>
+											<td><a href="#">Blog</a></td>
+											<td>6974</td>
+										</tr>
+										<tr>
+											<td><a href="#">jQuery UI tips</a></td>
+											<td>5377</td>
+										</tr>
+										<tr>
+											<td><a href="#">100+ Free Icon Sets</a></td>
+											<td>4990</td>
+										</tr>
+										<tr>
+											<td><a href="#">How to use a Google Web Tools</a></td>
+											<td>4834</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+		<div class="row">
+			<div id="footer" class="col-xs-12">
+				&copy; 2013 ILead Software, LLC.
+			</div>
+		</div>
+
+		<script src="/lib/unicorn/js/excanvas.min.js"></script>
+		<script src="/lib/unicorn/js/jquery.min.js"></script>
+		<script src="/lib/unicorn/js/jquery-ui.custom.js"></script>
+		<script src="/lib/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+		<script src="/lib/unicorn/js/jquery.flot.min.js"></script>
+		<script src="/lib/unicorn/js/jquery.flot.resize.min.js"></script>
+		<script src="/lib/unicorn/js/jquery.sparkline.min.js"></script>
+		<script src="/lib/unicorn/js/fullcalendar.min.js"></script>
+		<script src="/lib/unicorn/js/jquery.jpanelmenu.min.js"></script>
+		<script src="/lib/unicorn/js/jquery.nicescroll.min.js"></script>
+		<script src="/lib/unicorn/js/unicorn.js"></script>
+		<script src="/lib/unicorn/js/unicorn.dashboard.js"></script>
+		<script src="/lib/unicorn/js/unicorn.charts.js"></script>
+	</body>
+</html>

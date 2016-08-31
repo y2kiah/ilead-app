@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html data-ng-app="ileadApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ILead</title>
+	
+	<!-- Stylesheets -->
+	<link href="/lib/bootstrap-3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="/css/style.css" rel="stylesheet" media="screen">
+	
+	<!-- Scripts -->
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="../../assets/js/html5shiv.js"></script>
+	<script src="../../assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body data-ng-controller="ileadCtrl" data-ng-cloak>
+	<div id="wrap">
+		<!-- Fixed navbar -->
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">ILEAD</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul id="topNav" class="nav navbar-nav"></ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Begin page content -->
+		<div id="page" class="container-fluid" style="padding-top:60px;">
+			<ul>
+				<li data-ng-repeat="nav in navMenu"><a href="{{nav.href}}">{{nav.name}}</a></li>
+			</ul>
+			<div id="orgchart"></div>
+		</div>
+	</div>
+	
+	<div id="footer">
+		<div class="container">
+			<!--<p class="text-muted credit">Copyright &copy; 2013 <a href="mailto:y2kiah@hotmail.com">Jeff Kiah</a> &amp; <a href="mailto:byrnesk@erau.edu">Kenneth Byrnes</a>.</p>-->
+		</div>
+	</div>
+	
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+	<script src="//code.jquery.com/jquery.min.js"></script>
+	<script src="/lib/underscore-1.5.1/underscore-min.js"></script>
+	
+	<script src="/lib/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="/js/ilead-controllers.js"></script>
+	<script src="/js/orgchart.js"></script>
+</body>
+</html>

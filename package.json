@@ -1,0 +1,27 @@
+{
+  "name": "ilead-app",
+  "version": "0.0.1",
+  "author": "Jeff Kiah <y2kiah@hotmail.com>",
+  "description": "ILead application and server. The ilead-ldap project imports org structure and employees from ldap directories.",
+  "private": true,
+  "scripts": {
+    "start": "supervisor ilead-server.js"
+  },
+  "dependencies": {
+    "express": ">=3.3.5",
+    "express-dot": ">=0.1.0",
+    "express-resource": ">=1.0.0",
+    "jugglingdb": ">= 0.2.0",
+    "jugglingdb-mongodb": "*",
+    "jugglingdb-redis": "*",
+    "ldapjs": "*",
+    "mongoose": ">=3.6.19",
+    "pg": "^3.3.0",
+    "q": ">=0.9.7",
+    "sequelize": "^1.7.8",
+    "supervisor": "*"
+  },
+  "engines": {
+    "node": ">=0.8"
+  }
+}

@@ -1,0 +1,6 @@
+{
+	"development": {
+		"driver":	"mongodb",
+		"url":		"mongodb://localhost/test"
+	}
+}
